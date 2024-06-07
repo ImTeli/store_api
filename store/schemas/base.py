@@ -1,12 +1,12 @@
 from datetime import datetime
 from decimal import Decimal
 from bson import Decimal128
-from pydantic import UUID4, BaseModel, Field, model_validator
+from pydantic import UUID4, BaseModel, Field, model_validator, ConfigDict
 
 
 class BaseSchemaMixin(BaseModel):
-    class Config:
-        from_attributes = True
+    
+    model_config = ConfigDict(from_attributes=True)
 
 
 class OutSchema(BaseModel):

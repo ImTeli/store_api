@@ -16,9 +16,9 @@ async def test_controller_create_should_return_success(client, products_url):
 
     assert response.status_code == status.HTTP_201_CREATED
     assert content == {
-        "name": "Iphone 14 Pro Max",
+        "name": "Samsung S23",
         "quantity": 10,
-        "price": "8.500",
+        "price": "5.600",
         "status": True,
     }
 
@@ -36,9 +36,9 @@ async def test_controller_get_should_return_success(
     assert response.status_code == status.HTTP_200_OK
     assert content == {
         "id": str(product_inserted.id),
-        "name": "Iphone 14 Pro Max",
+        "name": "Samsung S23",
         "quantity": 10,
-        "price": "8.500",
+        "price": "5.600",
         "status": True,
     }
 
@@ -76,7 +76,7 @@ async def test_controller_patch_should_return_success(
     assert response.status_code == status.HTTP_200_OK
     assert content == {
         "id": str(product_inserted.id),
-        "name": "Iphone 14 Pro Max",
+        "name": "Samsung S23",
         "quantity": 10,
         "price": "7.500",
         "status": True,

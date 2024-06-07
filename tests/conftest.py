@@ -7,6 +7,7 @@ from store.schemas.product import ProductIn, ProductUpdate
 from store.usecases.product import product_usecase
 from tests.factories import product_data, products_data
 from httpx import AsyncClient
+from store.main import app
 
 
 @pytest.fixture(scope="session")
@@ -33,9 +34,7 @@ async def clear_collections(mongo_client):
 
 
 @pytest.fixture
-async def client() -> AsyncClient:
-    from store.main import app
-
+async def client() -> AsyncClient:  # type: ignore
     async with AsyncClient(app=app, base_url="http://test") as ac:
         yield ac
 
